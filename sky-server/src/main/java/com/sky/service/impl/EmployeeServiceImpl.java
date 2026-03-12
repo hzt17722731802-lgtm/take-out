@@ -77,13 +77,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         //设置剩余属性
         employee.setStatus(StatusConstant.ENABLE);  //避免硬编码，解耦更规范，其实就是1
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
-        employee.setCreateTime(LocalDateTime.now());
+        /*employee.setCreateTime(LocalDateTime.now());
         employee.setUpdateTime(LocalDateTime.now());
 
-        //TODO 后期需改为当前登录用户id
+        //后期需改为当前登录用户id
         employee.setCreateUser(BaseContext.getCurrentId());     //获取在jwt拦截器中存储的empId
         employee.setUpdateUser(BaseContext.getCurrentId());
-
+*/
         employeeMapper.insert(employee);
     }
 
@@ -128,8 +128,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDTO,employee);
 
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+       /* employee.setUpdateTime(LocalDateTime.now());
+        employee.setUpdateUser(BaseContext.getCurrentId());*/
 
         employeeMapper.update(employee);
 
