@@ -3,5 +3,5 @@
 *.iml
 *.class
 *Test.java
-*.yml
+sky-server/src/main/resources/application*.yml
 **/test/
